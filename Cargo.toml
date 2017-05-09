@@ -1,0 +1,6 @@
+[package]
+name = "rust-wiring"
+version = "0.1.0"
+authors = ["Greg Wiley <aztec.rex@jammm.com>"]
+
+[dependencies]
