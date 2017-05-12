@@ -72,9 +72,11 @@ fn main() {
     let model = MyModel;
     let source = MySource;
     let c = config::create();
+    println!("{:?}", c);
     let c = c.with_model(model);
+    println!("{:?}", c);
     let mut c = c.with_source(source);
+    println!("{:?}", c);
     c.model.mutate();
     c.source.get();
-    println!("{:?}", c);
 }
