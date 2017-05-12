@@ -20,11 +20,12 @@ mod source {
 mod config {
     use super::model::Model;
     use super::source::Source;
-    #[derive(Clone, Copy, Debug, T)]
+    #[derive(Clone, Copy, Debug)]
     pub struct None;
     impl Model for None {}
     impl Source for None {}
 
+    #[derive(Debug)]
     pub struct Config<M: Model, S: Source> {
         pub model: M,
         pub source: S,
@@ -49,6 +50,7 @@ mod config {
     }
 }
 
+#[derive(Debug)]
 struct MyModel;
 impl model::Model for MyModel {
     fn mutate(&mut self) {
@@ -56,6 +58,7 @@ impl model::Model for MyModel {
     }
 }
 
+#[derive(Debug)]
 struct MySource;
 impl source::Source for MySource {
     fn get(&self) {
@@ -73,4 +76,5 @@ fn main() {
     let mut c = c.with_source(source);
     c.model.mutate();
     c.source.get();
+    println!("{:?}", c);
 }
