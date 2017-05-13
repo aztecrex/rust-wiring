@@ -66,9 +66,11 @@ impl source::Source for MySource {
     }
 }
 
+use model::Model;
+use source::Source;
+
+
 fn main() {
-    use model::Model;
-    use source::Source;
     let model = MyModel;
     let source = MySource;
     let c = config::create();
